@@ -14,7 +14,7 @@ import NavbarComponent from "./Components/NavbarComponent";
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 font-sans">
+    <div className="min-h-screen bg-gray-100 text-gray-900 font-roboto">
       {/* Header */}
       <NavbarComponent />
 
