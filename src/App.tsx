@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 
 import FooterComponent from "./Components/FooterComponent";
 import ContactComponent from "./Components/ContactComponent";

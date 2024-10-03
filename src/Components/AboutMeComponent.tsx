@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import profilePicture from "../../public/propic.jpeg";
 
 const AboutMeComponent: React.FC = () => {
+  const [totalMonths, setTotalMonths] = useState<number | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Function to get total months using the API
+  const getTotalMonthsFromMay2023 = async (): Promise<number> => {
+    const startYear = 2023;
+    const startMonth = 4; // May is the 5th month, zero-indexed to 4
+
+    // Fetching current date from the World Clock API
+    const response = await fetch(
+      "https://worldtimeapi.org/api/timezone/Etc/UTC"
+    );
+    const data = await response.json();
+
+    const currentDate = new Date(data.utc_datetime);
+    const currentYear = currentDate.getUTCFullYear();
+    const currentMonth = currentDate.getUTCMonth(); // Zero-indexed
+
+    const totalMonths =
+      (currentYear - startYear) * 12 + (currentMonth - startMonth);
+
+    return totalMonths;
+  };
+
+  // useEffect to fetch and display the total months on component mount
+  useEffect(() => {
+    const fetchTotalMonths = async () => {
+      try {
+        const months = await getTotalMonthsFromMay2023();
+        setTotalMonths(months);
+      } catch (error) {
+        console.error("Error fetching the total months:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTotalMonths();
+  }, []);
+
   return (
     <>
       <section id="about" className="py-20">
@@ -8,11 +49,11 @@ const AboutMeComponent: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <div className="md:flex items-center">
-              <div className="md:w-1/3 mb-6 md:mb-0">
+              <div className="md:w-1/2 mb-6 md:mb-0">
                 <img
-                  src="https://via.placeholder.com/300"
+                  src={profilePicture}
                   alt="S M MEHEDI"
-                  className="rounded-full mx-auto w-48 h-48 object-cover"
+                  className="rounded-full mx-auto w-56 h-56 object-cover"
                 />
               </div>
               <div className="md:w-2/3 md:pl-8">
@@ -20,26 +61,41 @@ const AboutMeComponent: React.FC = () => {
                   Hello, I'm S M MEHEDI
                 </h3>
                 <p className="mb-4">
-                  I'm a passionate full-stack developer with 5+ years of
-                  experience in building scalable web applications. My expertise
-                  lies in JavaScript, TypeScript, React, and Node.js.
+                  I'm a passionate full-stack developer with
+                  {loading ? (
+                    <span className="text-orange-500">
+                      calculating experiance
+                    </span>
+                  ) : (
+                    ` ${totalMonths}+ months `
+                  )}
+                  of experience in building scalable web applications. My
+                  expertise lies in JavaScript, TypeScript, React, NodeJS,
+                  ExpressJS, MongoDB, Python and many more.
                 </p>
                 <div className="mb-6">
                   <h4 className="font-bold mb-2">My Approach:</h4>
                   <ul className="list-disc list-inside">
-                    <li>User-Centric Design</li>
+                    {/* <li>User-Centric Design</li> */}
                     <li>Clean and Efficient Code</li>
                     <li>Continuous Learning</li>
                     <li>Collaborative Development</li>
                   </ul>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors">
-                    Download Resume
-                  </button>
-                  <button className="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors">
+                  <a
+                    className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors"
+                    href="https://drive.google.com/drive/folders/19OA_n8pdoxrL2zEbO2ZfNeRfz3S6o4C4?usp=sharing"
+                    target="_black"
+                  >
+                    View Resume
+                  </a>
+                  <a
+                    className="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+                    href="#projects"
+                  >
                     View Projects
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

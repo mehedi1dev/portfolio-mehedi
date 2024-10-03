@@ -81,12 +81,19 @@ const HeroComponent: React.FC = () => {
             Full-Stack Web Developer
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-gray-900 py-2 px-6 rounded hover:bg-gray-200 transition-colors">
+            <a
+              className="bg-white text-gray-900 py-2 px-6 rounded hover:bg-gray-200 transition-colors"
+              href="#contact"
+            >
               Contact Me
-            </button>
-            <button className="bg-transparent text-white py-2 px-6 rounded border border-white hover:bg-white hover:text-gray-900 transition-colors">
-              Download CV
-            </button>
+            </a>
+            <a
+              className="bg-transparent text-white py-2 px-6 rounded border border-white hover:bg-white hover:text-gray-900 transition-colors"
+              href="https://drive.google.com/drive/folders/19OA_n8pdoxrL2zEbO2ZfNeRfz3S6o4C4?usp=sharing"
+              target="_black"
+            >
+              View Resume
+            </a>
           </div>
         </div>
       </section>
