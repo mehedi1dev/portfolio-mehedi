@@ -3,22 +3,22 @@ import React from "react";
 
 const education = [
   {
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    year: "2018 - 2020",
-    location: "Stanford, CA",
-    major: "Artificial Intelligence and Machine Learning",
+    degree: "Master of Science in Management Information System",
+    institution: "Daffodil International University",
+    year: "January, 2024 - Present",
+    location: "Dhaka, Bangladesh",
+    cgpa: "Running",
     description:
-      "Thesis on 'Deep Learning Approaches for Natural Language Processing'.",
+      "Currently pursuing a master's degree, focusing on data management and modern business solutions.",
   },
   {
-    degree: "Bachelor of Science in Software Engineering",
-    institution: "Massachusetts Institute of Technology",
+    degree: "B.Sc. Engg. in Computer Science and Engineering",
+    institution: "Bangladesh University of Business and Technology",
     year: "2014 - 2018",
-    location: "Cambridge, MA",
-    major: "Software Engineering",
+    location: "Dhaka, Bangladesh",
+    cgpa: "3.95 out of 4.00",
     description:
-      "Graduated with honors. Participated in multiple hackathons and led the university's coding club.",
+      "Graduated with honors 🎓. Participated in various coding contests 🧑‍💻. Led multiple course-specific projects involving software architecture, algorithm design, application development and technical leadership skills.",
   },
 ];
 
@@ -40,7 +40,9 @@ const EducationComponent: React.FC = () => {
                     <p className="text-lg font-semibold mb-1">
                       {edu.institution}
                     </p>
-                    <p className="text-gray-600 mb-2">Major in {edu.major}</p>
+                    <p className="font-bold mb-2">
+                      CGPA: <span>{edu.cgpa}</span>
+                    </p>
                     <div className="text-sm text-gray-600 mb-2 flex items-center">
                       <Book className="w-4 h-4 mr-2" />
                       <span>{edu.year}</span>
