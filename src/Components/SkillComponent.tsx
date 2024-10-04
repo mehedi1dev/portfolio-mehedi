@@ -1,13 +1,20 @@
 import React from "react";
 import {
+  ArrowRight,
   Box,
+  ClipboardList,
   Cloud,
   Code,
   Database,
+  DatabaseZap,
+  Edit,
+  Frame,
   GitBranch,
-  GitPullRequest,
+  Github,
   Layers,
+  Layout,
   Search,
+  SearchCode,
   Server,
   Settings,
 } from "lucide-react";
@@ -18,34 +25,46 @@ const skills = [
     icon: <Layers className="w-6 h-6" />,
     items: [
       {
-        name: "React",
+        name: "JavaScript",
         icon: <Code className="w-4 h-4" />,
         description:
-          "Expert in building complex, scalable UIs with React, including hooks, context, and advanced patterns.",
+          "Deep expertise in JavaScript, including ES6+ features, asynchronous programming, and functional paradigms.",
       },
       {
         name: "TypeScript",
         icon: <Code className="w-4 h-4" />,
         description:
-          "Strong typing skills, including advanced types, generics, and type inference in large-scale applications.",
+          "Strong experience with TypeScript for building large-scale, type-safe applications.",
       },
       {
-        name: "CSS",
-        icon: <Layers className="w-4 h-4" />,
+        name: "React",
+        icon: <Code className="w-4 h-4" />,
         description:
-          "Extensive experience in responsive design, CSS-in-JS, and modern layout techniques like Flexbox and Grid.",
+          "Expert in building component-based UIs using React, including hooks and context API.",
+      },
+      {
+        name: "Next.js",
+        icon: <ArrowRight className="w-4 h-4" />,
+        description:
+          "Proficient in Next.js for building fast, server-rendered React applications with dynamic routing.",
+      },
+      {
+        name: "React Query",
+        icon: <Cloud className="w-4 h-4" />,
+        description:
+          "Skilled in handling server-side data fetching and caching efficiently with React Query.",
       },
       {
         name: "Redux",
-        icon: <Layers className="w-4 h-4" />,
+        icon: <Box className="w-4 h-4" />,
         description:
-          "Skilled in state management with Redux, including middleware, selectors, and Redux Toolkit.",
+          "Experienced in managing complex state with Redux, including Redux Toolkit and middleware.",
       },
       {
-        name: "Webpack",
-        icon: <Settings className="w-4 h-4" />,
+        name: "Tailwind CSS",
+        icon: <Layout className="w-4 h-4" />,
         description:
-          "Proficient in configuring and optimizing Webpack for complex build processes and performance optimization.",
+          "Proficient in creating responsive designs and utility-first styling with Tailwind CSS.",
       },
     ],
   },
@@ -55,105 +74,75 @@ const skills = [
     items: [
       {
         name: "Node.js",
-        icon: <Server className="w-4 h-4" />,
+        icon: <Code className="w-4 h-4" />,
         description:
-          "Extensive experience in building scalable server-side applications and RESTful APIs with Node.js.",
+          "Extensive experience in building scalable server-side applications and APIs using Node.js.",
       },
       {
-        name: "Express",
-        icon: <Server className="w-4 h-4" />,
+        name: "Express.js",
+        icon: <Frame className="w-4 h-4" />,
         description:
-          "Proficient in creating robust web applications and APIs using Express.js framework.",
+          "Proficient in developing RESTful APIs and web services using the Express.js framework.",
       },
       {
         name: "Python",
         icon: <Code className="w-4 h-4" />,
         description:
-          "Strong skills in Python for backend development, data processing, and automation tasks.",
+          "Experienced in using Python for backend development, automation, and scripting.",
       },
-      {
-        name: "Django",
-        icon: <Layers className="w-4 h-4" />,
-        description:
-          "Experienced in building full-stack web applications with Django, including ORM and admin interface.",
-      },
-      {
-        name: "GraphQL",
-        icon: <Database className="w-4 h-4" />,
-        description:
-          "Skilled in designing and implementing GraphQL APIs for efficient data querying and manipulation.",
-      },
-    ],
-  },
-  {
-    category: "Database",
-    icon: <Database className="w-6 h-6" />,
-    items: [
       {
         name: "MongoDB",
-        icon: <Database className="w-4 h-4" />,
+        icon: <DatabaseZap className="w-4 h-4" />,
         description:
-          "Proficient in designing and managing MongoDB databases, including aggregation pipelines and indexing.",
+          "Proficient in designing and managing NoSQL databases with MongoDB, including aggregation and indexing.",
       },
       {
         name: "PostgreSQL",
         icon: <Database className="w-4 h-4" />,
         description:
-          "Experienced in complex SQL queries, stored procedures, and performance optimization in PostgreSQL.",
-      },
-      {
-        name: "MySQL",
-        icon: <Database className="w-4 h-4" />,
-        description:
-          "Skilled in MySQL database design, query optimization, and administration.",
-      },
-      {
-        name: "Redis",
-        icon: <Database className="w-4 h-4" />,
-        description:
-          "Proficient in using Redis for caching, session management, and real-time applications.",
-      },
-      {
-        name: "Elasticsearch",
-        icon: <Search className="w-4 h-4" />,
-        description:
-          "Experienced in implementing full-text search and analytics with Elasticsearch.",
+          "Skilled in writing complex SQL queries, optimizing performance, and managing PostgreSQL databases.",
       },
     ],
   },
   {
-    category: "DevOps & Tools",
+    category: "Tools",
     icon: <Settings className="w-6 h-6" />,
     items: [
       {
         name: "Git",
         icon: <GitBranch className="w-4 h-4" />,
         description:
-          "Advanced Git user, proficient in branching strategies, rebasing, and managing large repositories.",
+          "Proficient in version control with Git, including branching strategies and collaboration workflows.",
       },
       {
-        name: "Docker",
-        icon: <Box className="w-4 h-4" />,
+        name: "GitHub",
+        icon: <Github className="w-4 h-4" />,
         description:
-          "Skilled in containerizing applications and managing multi-container environments with Docker and Docker Compose.",
+          "Experienced in managing repositories, issues, and pull requests using GitHub.",
       },
       {
-        name: "CI/CD",
-        icon: <GitPullRequest className="w-4 h-4" />,
+        name: "Figma",
+        icon: <Edit className="w-4 h-4" />,
         description:
-          "Experienced in setting up and maintaining CI/CD pipelines using Jenkins, GitLab CI, and GitHub Actions.",
+          "Skilled in using Figma for UI/UX design, wireframing, and prototyping collaborative design solutions.",
       },
       {
-        name: "AWS",
-        icon: <Cloud className="w-4 h-4" />,
+        name: "JIRA",
+        icon: <ClipboardList className="w-4 h-4" />,
         description:
-          "Proficient in deploying and managing applications on AWS, including EC2, S3, Lambda, and ECS.",
+          "Experienced in using JIRA for project management, task tracking, and sprint planning.",
       },
+    ],
+  },
+  {
+    category: "Others",
+    icon: <Search className="w-6 h-6" />,
+    items: [
       {
-        name: "Kubernetes",
-        icon: <Layers className="w-4 h-4" />,
+        name: "Searching",
+        icon: <SearchCode className="w-4 h-4" />,
         description:
-          "Experienced in deploying, scaling, and managing containerized applications with Kubernetes.",
+          "Proficient in quickly finding and acquiring new skills, tools, and technologies through research and experimentation.",
       },
     ],
   },
