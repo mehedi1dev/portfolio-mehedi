@@ -1,27 +1,30 @@
 import React from "react";
+import project1 from "../../public/projectImg/p1.png";
+import project2 from "../../public/projectImg/p2.png";
 
 const projects = [
   {
-    title: "E-commerce Platform",
+    title: "Agency Landing Page",
     desc: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include real-time inventory management, user authentication, and a responsive design.",
-    image:
-      "https://drive.usercontent.google.com/download?id=15tQ3L1mHoW8H4VuMtb--eIxD7yXzasoo",
+    image: project1,
     demo: "https://mehedi1dev.github.io/Agency-Website/",
     github: "https://github.com/mehedi1dev/Agency-Website",
   },
   {
-    title: "Task Management App",
+    title: "Personal Portfolio",
     desc: "A React-based task manager with real-time updates using WebSockets. Includes features like drag-and-drop task organization, team collaboration, and data visualization.",
-    image: "https://via.placeholder.com/400x200",
-    demo: "#",
-    github: "#",
+    image: project2,
+    demo: "https://mportfoliov2.netlify.app/",
+    github: "https://github.com/mehedi1dev/my-portfolio-v1",
   },
   {
-    title: "Portfolio Website",
-    desc: "A responsive portfolio website built with React and CSS. Features smooth scrolling, dynamic content loading, and a custom-built slider component.",
-    image: "https://via.placeholder.com/400x200",
+    title: "Coming Soon",
+    desc: "Just wait & see",
+    image:
+      "https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg",
     demo: "#",
     github: "#",
+    disable: true,
   },
 ];
 
@@ -40,20 +43,24 @@ const ProjectCard: React.FC<{ project: (typeof projects)[0] }> = ({
         <p className="text-gray-600 mb-4">{project.desc}</p>
       </div>
       <div className="flex space-x-4">
-        <a
-          href={project.demo}
-          className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors"
-          target="_blank"
-        >
-          Live Demo
-        </a>
-        <a
-          href={project.github}
-          className="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
-          target="_blank"
-        >
-          GitHub
-        </a>
+        {!project.disable && (
+          <>
+            <a
+              href={project.demo}
+              className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors"
+              target="_blank"
+            >
+              Live Demo
+            </a>
+            <a
+              href={project.github}
+              className="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </>
+        )}
       </div>
     </div>
   </div>
