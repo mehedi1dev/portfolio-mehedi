@@ -28,15 +28,6 @@ const blogPosts = [
     image:
       "https://miro.medium.com/v2/resize:fit:828/format:webp/1*LajtlweguogWtbDKk2KHRQ.jpeg",
   },
-  {
-    title: "More are coming soon!",
-    date: "Near future",
-    excerpt: "Just wait & see",
-    link: "#",
-    image:
-      "https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg",
-    disable: true,
-  },
 ];
 
 const BlogCard: React.FC<{ post: (typeof blogPosts)[0] }> = ({ post }) => (
@@ -52,15 +43,15 @@ const BlogCard: React.FC<{ post: (typeof blogPosts)[0] }> = ({ post }) => (
         <p className="text-sm text-gray-500 mb-4">{post.date}</p>
         <p className="text-gray-600 mb-4 text-justify">{post.excerpt}</p>
       </div>
-      {!post.disable && (
-        <a
-          href={post.link}
-          className="text-gray-700 hover:text-gray-900 font-semibold"
-          target="_blank"
-        >
-          Read More →
-        </a>
-      )}
+      {/* {!post.disable && ( */}
+      <a
+        href={post.link}
+        className="text-gray-700 hover:text-gray-900 font-semibold"
+        target="_blank"
+      >
+        Read More →
+      </a>
+      {/* )} */}
     </div>
   </div>
 );
