@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profilePicture from "../../public/propic.jpeg";
+import profilePicture from "../../public/propic.png";
 
 const AboutMeComponent: React.FC = () => {
   const [totalMonths, setTotalMonths] = useState<number | null>(null);
