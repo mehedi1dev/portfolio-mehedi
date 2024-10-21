@@ -1,8 +1,16 @@
 import React from "react";
 import project1 from "../../public/projectImg/p1.png";
 import project2 from "../../public/projectImg/p2.png";
+import project3 from "../../public/projectImg/p3.jpg";
 
 const projects = [
+  {
+    title: "Link Sharing App",
+    desc: "A simple link-sharing application that allows users to easily share and manage URLs. This project is designed to offer a smooth user experience with modern UI/UX principles.",
+    image: project3,
+    demo: "https://link-sharing-app-mehedi1dev.netlify.app/",
+    github: "https://github.com/mehedi1dev/link-sharing-app",
+  },
   {
     title: "Agency Landing Page",
     desc: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include real-time inventory management, user authentication, and a responsive design.",
@@ -16,15 +24,6 @@ const projects = [
     image: project2,
     demo: "https://mportfoliov2.netlify.app/",
     github: "https://github.com/mehedi1dev/my-portfolio-v1",
-  },
-  {
-    title: "Coming Soon",
-    desc: "Just wait & see",
-    image:
-      "https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg",
-    demo: "#",
-    github: "#",
-    disable: true,
   },
 ];
 
@@ -43,24 +42,24 @@ const ProjectCard: React.FC<{ project: (typeof projects)[0] }> = ({
         <p className="text-gray-600 mb-4">{project.desc}</p>
       </div>
       <div className="flex space-x-4">
-        {!project.disable && (
-          <>
-            <a
-              href={project.demo}
-              className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors"
-              target="_blank"
-            >
-              Live Demo
-            </a>
-            <a
-              href={project.github}
-              className="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
-              target="_blank"
-            >
-              GitHub
-            </a>
-          </>
-        )}
+        {/* {!project.disable && ( */}
+        <>
+          <a
+            href={project.demo}
+            className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800 transition-colors"
+            target="_blank"
+          >
+            Live Demo
+          </a>
+          <a
+            href={project.github}
+            className="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+            target="_blank"
+          >
+            GitHub
+          </a>
+        </>
+        {/* )} */}
       </div>
     </div>
   </div>
