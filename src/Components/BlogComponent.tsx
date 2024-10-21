@@ -2,6 +2,15 @@ import React from "react";
 
 const blogPosts = [
   {
+    title: "Optimizing Performance in React with the Flyweight Pattern 🚀",
+    date: "October 16, 2024",
+    excerpt:
+      "In the world of software development, we’re always on a mission for efficiency — whether that’s in memory usage or performance. One way we can achieve...",
+    link: "https://medium.com/@mehedi1dev/optimizing-performance-in-react-with-the-flyweight-pattern-af3ee858e6f4",
+    image:
+      "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*XdvF-Zfj03qvj4tSclEyOw.jpeg",
+  },
+  {
     title: "Unlocking React’s Potential with the Container-Presenter Pattern",
     date: "October 03, 2024",
     excerpt:
