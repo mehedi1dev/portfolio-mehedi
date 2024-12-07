@@ -1,42 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import profilePicture from "../../public/propic.png";
 
 const AboutMeComponent: React.FC = () => {
-  const [totalMonths, setTotalMonths] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const startYear = 2023;
+  const startMonth = 4; // May is the 5th month, zero-indexed to 4
 
-  // Function to get total months from May 2023
-  const getTotalMonthsFromMay2023 = () => {
-    const startYear = 2023;
-    const startMonth = 4; // May is the 5th month, zero-indexed to 4
+  // Get the current date
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth(); // Zero-indexed
 
-    // Get the current date
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth(); // Zero-indexed
-
-    // Calculate total months difference
-    const totalMonths =
-      (currentYear - startYear) * 12 + (currentMonth - startMonth);
-
-    return totalMonths;
-  };
-
-  // useEffect to calculate total months on component mount
-  useEffect(() => {
-    const calculateTotalMonths = () => {
-      try {
-        const months = getTotalMonthsFromMay2023();
-        setTotalMonths(months);
-      } catch (error) {
-        console.error("Error calculating total months:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    calculateTotalMonths();
-  }, []);
+  // Calculate total months difference
+  const totalMonths =
+    (currentYear - startYear) * 12 + (currentMonth - startMonth);
 
   return (
     <>
@@ -57,15 +33,8 @@ const AboutMeComponent: React.FC = () => {
                   Hello, I'm S M MEHEDI
                 </h3>
                 <p className="mb-4">
-                  I'm a passionate full-stack developer with
-                  {loading ? (
-                    <span className="text-orange-500">
-                      calculating experiance
-                    </span>
-                  ) : (
-                    ` ${totalMonths}+ months `
-                  )}
-                  of experience in building scalable web applications. My
+                  I'm a passionate full-stack developer with {totalMonths}+
+                  months of experience in building scalable web applications. My
                   expertise lies in JavaScript, TypeScript, React, NodeJS,
                   ExpressJS, MongoDB, Python and many more.
                 </p>
