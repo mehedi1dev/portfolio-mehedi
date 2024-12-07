@@ -2,44 +2,40 @@ import React, { useEffect, useState } from "react";
 import profilePicture from "../../public/propic.png";
 
 const AboutMeComponent: React.FC = () => {
-  const [totalMonths, setTotalMonths] = useState<number | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [totalMonths, setTotalMonths] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  // Function to get total months using the API
-  const getTotalMonthsFromMay2023 = async (): Promise<number> => {
+  // Function to get total months from May 2023
+  const getTotalMonthsFromMay2023 = () => {
     const startYear = 2023;
     const startMonth = 4; // May is the 5th month, zero-indexed to 4
 
-    // Fetching current date from the World Clock API
-    const response = await fetch(
-      "https://worldtimeapi.org/api/timezone/Etc/UTC"
-    );
-    const data = await response.json();
+    // Get the current date
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth(); // Zero-indexed
 
-    const currentDate = new Date(data.utc_datetime);
-    const currentYear = currentDate.getUTCFullYear();
-    const currentMonth = currentDate.getUTCMonth(); // Zero-indexed
-
+    // Calculate total months difference
     const totalMonths =
       (currentYear - startYear) * 12 + (currentMonth - startMonth);
 
     return totalMonths;
   };
 
-  // useEffect to fetch and display the total months on component mount
+  // useEffect to calculate total months on component mount
   useEffect(() => {
-    const fetchTotalMonths = async () => {
+    const calculateTotalMonths = () => {
       try {
-        const months = await getTotalMonthsFromMay2023();
+        const months = getTotalMonthsFromMay2023();
         setTotalMonths(months);
       } catch (error) {
-        console.error("Error fetching the total months:", error);
+        console.error("Error calculating total months:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchTotalMonths();
+    calculateTotalMonths();
   }, []);
 
   return (
