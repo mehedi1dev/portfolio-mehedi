@@ -8,7 +8,6 @@ const ContactComponent: React.FC = () => {
 
     formData.append("access_key", "6117916a-f9b4-41b3-b553-4ee20ab1e893");
 
-    console.log(formData);
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData,
